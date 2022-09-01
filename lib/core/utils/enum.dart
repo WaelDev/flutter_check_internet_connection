@@ -1,5 +1,4 @@
 enum ConnectionStatus {
   connected,
-  notConeected,
-  loading,
+  notConnected,
 }

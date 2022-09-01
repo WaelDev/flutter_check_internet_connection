@@ -22,7 +22,7 @@ class InternetBloc extends Bloc<InternetEvent, InternetState> {
       } else if (event is NotConnectedEvent) {
         emit(const InternetState(
           message: 'Not Connected',
-          status: ConnectionStatus.notConeected,
+          status: ConnectionStatus.notConnected,
         ));
       }
     });

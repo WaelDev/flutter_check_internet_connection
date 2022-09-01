@@ -11,17 +11,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home Screen')),
-      body: BlocBuilder<InternetBloc, InternetState>(
+      body: BlocConsumer<InternetBloc, InternetState>(
+        listener: (context, state) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(state.message),
+            backgroundColor: Colors.redAccent,
+          ));
+        },
         builder: (context, state) {
           switch (state.status) {
             case ConnectionStatus.connected:
               return Center(child: Text(state.message));
-            case ConnectionStatus.notConeected:
+            case ConnectionStatus.notConnected:
               return Center(child: Text(state.message));
-            case ConnectionStatus.loading:
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+
             default:
               return const SizedBox();
           }

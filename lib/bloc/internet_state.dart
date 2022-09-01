@@ -5,7 +5,7 @@ class InternetState extends Equatable {
   final String message;
 
   const InternetState({
-    this.status = ConnectionStatus.loading,
+    this.status = ConnectionStatus.notConnected,
     this.message = '',
   });
   @override
